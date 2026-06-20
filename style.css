@@ -197,7 +197,7 @@ body {
 /* Pantalla Verde de Estadísticas */
 .green-screen {
   width: 175px;
-  height: 110px;
+  min-height: 140px;
   background-color: #51ae5f;
   border-radius: 5px;
   border: 3px solid #387843;
@@ -211,15 +211,70 @@ body {
   justify-content: space-between;
 }
 
+.abilities-panel {
+  margin-top: 4px;
+}
+
+.abilities-title {
+  font-size: 9px;
+  letter-spacing: 1px;
+  text-align: center;
+  border-bottom: 1px dashed #122815;
+  padding-bottom: 2px;
+  margin-bottom: 2px;
+}
+
+.abilities-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 2px;
+}
+
+.abilities-list li {
+  font-size: 9px;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.type-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  justify-content: center;
+  align-items: center;
+  margin: 4px 0;
+}
+
+.type-label {
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+.type-badges {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.type-badge {
+  display: inline-block;
+  padding: 2px 4px;
+  font-size: 9px;
+  background-color: rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
 .pokemon-name {
-  font-size: 11px;
+  font-size: 12px;
   border-bottom: 1px dashed #122815;
   padding-bottom: 2px;
   margin-bottom: 4px;
   text-align: center;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .stats-table {

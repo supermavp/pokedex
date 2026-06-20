@@ -40,6 +40,9 @@ const pokemonSelected = async (pokemonUrl) => {
     document.getElementById("stat-spatk").textContent = "-";
     document.getElementById("stat-spdef").textContent = "-";
     document.getElementById("stat-speed").textContent = "-";
+    const typesContainer = document.getElementById("pokeTypes");
+    typesContainer.innerHTML = "<span class=\"type-badge\">-</span>";
+    document.getElementById("pokeAbilities").innerHTML = "<li>-</li>";
     return; 
   }
 
@@ -67,6 +70,23 @@ const pokemonSelected = async (pokemonUrl) => {
     document.getElementById("stat-spatk").textContent = statsMap["special-attack"] || 0;
     document.getElementById("stat-spdef").textContent = statsMap["special-defense"] || 0;
     document.getElementById("stat-speed").textContent = statsMap["speed"] || 0;
+
+    const typesContainer = document.getElementById("pokeTypes");
+    typesContainer.innerHTML = "";
+    response.types.forEach((typeEntry) => {
+      const typeBadge = document.createElement("span");
+      typeBadge.className = "type-badge";
+      typeBadge.textContent = typeEntry.type.name.toUpperCase();
+      typesContainer.appendChild(typeBadge);
+    });
+
+    const abilitiesList = document.getElementById("pokeAbilities");
+    abilitiesList.innerHTML = "";
+    response.abilities.forEach((abilityEntry) => {
+      const abilityItem = document.createElement("li");
+      abilityItem.textContent = abilityEntry.ability.name.replace(/-/g, " ").toUpperCase();
+      abilitiesList.appendChild(abilityItem);
+    });
 
   } catch (error) {
     console.error("Error fetching pokemon details:", error);
