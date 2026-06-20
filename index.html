@@ -1,25 +1,98 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Taller 3</title>
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokédex Virtual Interactiva</title>
     <script src="main.js" defer></script>
-</head>
-<body>
-    <section>
-        <div>
-            <label for="pokemons">ELige tu Pokemón</label>
-            <select id="pokemons" onchange="pokemonSelected(this.value)">
-            <option value="">Select a Pokemon</option>
-        </select>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <!-- Combo Selector afuera de la Pokédex -->
+    <div class="selector-container">
+      <label for="pokeSelect">ELEGIR POKÉMON:</label>
+      <select
+        id="pokeSelect"
+        class="pokemon-select"
+        onchange="pokemonSelected(this.value)"
+      >
+        <option value="">Select a Pokemón</option>
+      </select>
+    </div>
+
+    <!-- La Pokédex -->
+    <div class="pokedex">
+      <div class="top-lights">
+        <div class="big-blue-light"></div>
+        <div class="small-lights">
+          <div class="light red"></div>
+          <div class="light yellow"></div>
+          <div class="light green"></div>
+        </div>
+      </div>
+
+      <div class="screen-container">
+        <div class="screen-top-dots">
+          <div class="screen-dot"></div>
+          <div class="screen-dot"></div>
+        </div>
+        <div class="main-screen">
+          <div id="screen-placeholder" class="placeholder-text">
+            ELIJA UN POKÉMON
+          </div>
+          <img id="pokeImg" alt="Cargando..." />
+        </div>
+      </div>
+
+      <div class="controls">
+        <div class="row-1">
+          <div class="black-button"></div>
+          <div class="long-buttons">
+            <div class="long-button red"></div>
+            <div class="long-button blue"></div>
+          </div>
         </div>
 
-        <div id="pokemon-info">
-            <h1 id="pokemon-name"></h1>   
-            <img id="pokemon-image">
-            <ul id="pokemon-stats"></ul>
+        <div class="row-1">
+          <div class="green-screen">
+            <div id="pokeName" class="pokemon-name">CARGANDO...</div>
+            <table class="stats-table">
+              <tr>
+                <td>HP:</td>
+                <td id="stat-hp">-</td>
+              </tr>
+              <tr>
+                <td>ATTACK:</td>
+                <td id="stat-atk">-</td>
+              </tr>
+              <tr>
+                <td>DEFENSE:</td>
+                <td id="stat-def">-</td>
+              </tr>
+              <tr>
+                <td>SP. ATK:</td>
+                <td id="stat-spatk">-</td>
+              </tr>
+              <tr>
+                <td>SP. DEF:</td>
+                <td id="stat-spdef">-</td>
+              </tr>
+              <tr>
+                <td>SPEED:</td>
+                <td id="stat-speed">-</td>
+              </tr>
+            </table>
+          </div>
+
+          <div class="d-pad">
+            <div class="d-pad-btn d-pad-center"></div>
+            <div class="d-pad-btn d-pad-up"></div>
+            <div class="d-pad-btn d-pad-down"></div>
+            <div class="d-pad-btn d-pad-left"></div>
+            <div class="d-pad-btn d-pad-right"></div>
+          </div>
         </div>
-    </section>
-</body>
+      </div>
+    </div>
+  </body>
 </html>
